@@ -1,7 +1,8 @@
 import sys
 
 def segment_text(text):
-    return text.replace('. ', '.\n')
+    pattern = r'(?<!\.\s)(?<!;\s)\. '
+    return re.sub(pattern, '.\n', text)
 
 
 text = sys.stdin.read()
